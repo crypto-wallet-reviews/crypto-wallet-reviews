@@ -10,6 +10,15 @@ const userSchema = new Schema({
   reviews: [String]
 });
 
-const User = model("User", userSchema);
+const walletSchema = new Schema({
+  name: String,
+  description: String,
+  rating: Number,
+  reviews: [String]
+});
 
-module.exports = User;
+
+const User = model("User", userSchema);
+const Wallet = model("Wallet", walletSchema);
+
+module.exports = { User, Wallet };

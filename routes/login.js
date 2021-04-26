@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const passport = require('passport');
-const User = require('../models/models');
+const { User, Wallet } = require('../models/models');
 const bcrypt = require('bcrypt');
 
 /* GET signup page */
