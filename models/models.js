@@ -4,19 +4,18 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
   username: {
     type: String,
-    unique: true
+    unique: true,
   },
   password: String,
-  reviews: [String]
+  reviews: [String],
 });
 
 const walletSchema = new Schema({
   name: String,
   description: String,
   rating: Number,
-  reviews: [String]
+  reviews: [String],
 });
-
 
 const User = model("User", userSchema);
 const Wallet = model("Wallet", walletSchema);
