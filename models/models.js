@@ -1,6 +1,7 @@
 // USER MODEL
 const { Schema, model } = require("mongoose");
 
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -10,12 +11,19 @@ const userSchema = new Schema({
   reviews: [String]
 });
 
+
 const walletSchema = new Schema({
   name: String,
   description: String,
   rating: Number,
-  reviews: [String]
+  reviews: [
+    {
+      user: String,
+      comments: String
+    }
+  ]
 });
+
 
 
 const User = model("User", userSchema);
