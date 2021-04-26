@@ -1,0 +1,14 @@
+<h1>Wallet Info</h1> 
+
+{{#with walletInfo}}
+
+<h3>Name: {{name}}</h3>
+<p>Description: {{description}}</p>
+<h5>Rating: {{rating}}</h5>
+<p>Wallet ID: {{_id}}</p>
+
+<a href="/wallet/review/{{_id}}">Write A Review</a>
+
+<hr>
+
+{{/with}}
