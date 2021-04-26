@@ -24,6 +24,7 @@ h1 {
   list-style-type: none;
   margin: 0;
   padding-left: 8vh;
+  padding-right: 8vh;
   overflow: hidden;
   background-color: black;
   display: flex;
@@ -42,4 +43,13 @@ h1 {
   padding: 24px 26px;
   text-decoration: none;
 }
+
+.star {
+  color: lightgray;
+}
+
+.star.glow {
+  color: brown;
+}
+
 
