@@ -1,5 +1,9 @@
+
+.content {
+    padding: 50px;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,3 +14,28 @@ a {
 h1 {
   color: 15px;
 }
+
+
+.navbar ul{
+  list-style-type: none;
+  margin: 0;
+  padding-left: 8vh;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 24px 26px;
+  text-decoration: none;
+}
+
