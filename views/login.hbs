@@ -1,9 +1,24 @@
-<h1>Login Page</h1>
+{{!-- <h1>Login Page</h1> --}}
 
-<form action="/login" method="POST">
-  <label for="username">Username: </label>
-  <input type="text" name="username" id="username">
-  <label for="password">Password: </label>
-  <input type="password" name="password" id="password">
-  <button type="submit">Log In</button>
-</form>
+<div class= "wrapper">
+  <form class= "login" action="/login" method="POST">
+    <p class="title">Log in</p>
+      {{!-- <label for="username">Username: </label> --}}
+      <input type="text" placeholder="Username" name="username" id="username">
+
+      <i class="fa fa-user"></i>
+      {{!-- <label for="password">Password: </label> --}}
+      <input type="password" placeholder="Password" name="password" id="password">
+
+      <i class="fa fa-key"></i>
+      <div>
+        <a href="#">Forgot your password?</a>
+      </div>
+     
+      <div>
+        <button class="state" type="submit">Log In</button>
+      </div>
+
+  </form>
+    </p>
+</div>
