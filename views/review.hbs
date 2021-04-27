@@ -1,2 +1,14 @@
 <h1>Write a Review</h1>
 
+{{#with walletInfo}}
+
+<form action="/wallet/review/{{_id}}" method="POST">
+
+<label for="review"></label>
+<textarea name="review" id="review" cols="30" rows="10" placeholder="I loved it because..."></textarea>
+<br>
+<button type="submit">Submit Review</button>
+
+</form>
+
+{{/with}}

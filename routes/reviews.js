@@ -4,8 +4,31 @@ const { User, Wallet } = require('../models/models');
 const bcrypt = require('bcrypt');
 
 
+router.post('/wallet/review/:id', (req, res, next) => {
+  
+  const loggedInUser = req.session.user;
+  const { review } = req.body;
+
+  Wallet.findByIdAndUpdate(req.params.id, {
+    user: loggedInUser,
+    review: review
+  })
+    .then(wallet => {
+      console.log(wallet)
+      res.redirect("/wallets")
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+  
+
+
 router.get('/wallet/review/:id', (req, res, next) => {  
+  
   console.log(req.params.id)
+
+  console.log(req.session.user)
 
   Wallet.findById(req.params.id)
     .then(wallet => {

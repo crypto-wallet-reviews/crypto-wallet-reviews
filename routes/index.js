@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User, Wallet } = require('../models/models');
 
 
-
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -41,8 +40,6 @@ router.post('/wallets', (req, res, next) => {
       next(err)
     })
 })
-
-
 
 
 
