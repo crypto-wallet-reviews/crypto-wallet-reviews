@@ -12,8 +12,7 @@ router.get("/", (req, res, next) => {
 router.get('/wallets', (req, res, next) => {
   Wallet.find()
     .then(wallets => {
-      
-      res.render('wallets', { walletList: wallets });
+      res.render('wallets', { walletList: wallets});
     }).catch(err => {
       next(err);
     })
