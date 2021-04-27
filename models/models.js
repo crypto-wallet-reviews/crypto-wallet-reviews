@@ -8,6 +8,7 @@ const userSchema = new Schema({
     unique: true,
   },
   password: String,
+  imgUrl: String,
   email: String,
   reviews: [String],
   imgName: String,
@@ -23,6 +24,7 @@ const walletSchema = new Schema({
   imgName: String,
   imgPath: String,
   publicId: String,
+  averageRating: Number,
   reviews: [
     {
       user: String,
