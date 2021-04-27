@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require('passport');
 const { User, Wallet } = require('../models/models');
 const bcrypt = require('bcrypt');
-
+const { uploader, cloudinary } = require("../config/cloudinary");
 
 router.get("/login", (req, res, next) => {
   res.render("login");
