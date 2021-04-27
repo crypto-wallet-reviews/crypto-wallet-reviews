@@ -8,21 +8,22 @@ const userSchema = new Schema({
     unique: true,
   },
   password: String,
+  imgUrl: String,
   email: String,
   reviews: [String],
+
 });
 
 
 const walletSchema = new Schema({
   name: String,
   description: String,
-  rating: Number,
+  averageRating: Number,
   reviews: [
     {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'},
-        review: String
+      user: String,
+      review: String,
+      rating: Number
     }
   ]
 });

@@ -6,16 +6,17 @@ const bcrypt = require('bcrypt');
 
 router.post('/wallet/review/:id', (req, res, next) => {
   
-  const loggedInUser = req.session.user;
-  const { review } = req.body;
+  const user = req.session.user;
+  const { review, rating } = req.body;
+
+  console.log(user, review);
 
   Wallet.findByIdAndUpdate(req.params.id, {
-    user: loggedInUser,
-    review: review
+    $push: { reviews: { user: user.username, review: review, rating: rating } },
   })
     .then(wallet => {
       console.log(wallet)
-      res.redirect("/wallets")
+      res.redirect(`/wallet/${req.params.id}`);
     })
     .catch(err => {
       next(err);

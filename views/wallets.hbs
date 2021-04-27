@@ -2,9 +2,8 @@
 
 {{#each walletList}}
 
-<h3>Name: {{name}}</h3>
-<p>Description: {{description}}</p>
-<h5>Rating: {{rating}}</h5>
+<h3>{{name}}</h3>
+<p>{{description}}</p>
 
 <!-- To display checked star rating icons -->
 {{#times rating}}
@@ -12,7 +11,7 @@
 {{/times}}
 <!-- To display unchecked star rating icons -->
 {{!-- <span class="fa fa-star unchecked"></span> --}}
-<p>Wallet ID: {{_id}}</p>
+
 <a href="/wallet/{{_id}}">More Info</a>
 <hr>
 
