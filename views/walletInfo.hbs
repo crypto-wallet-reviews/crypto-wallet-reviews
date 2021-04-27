@@ -4,8 +4,23 @@
 
 <h3>Name: {{name}}</h3>
 <p>Description: {{description}}</p>
-<h5>Rating: {{rating}}</h5>
-<p>Wallet ID: {{_id}}</p>
+
+
+<hr>
+
+{{!-- List the reviews --}}
+{{#if reviews}}
+  {{#each reviews}}
+
+    <h5>{{user}} says:</h5>
+    <p>{{review}}</p>
+    <p>{{rating}}/5</p>
+    
+    <hr>
+  {{/each}}
+{{else}}
+<p>No reviews yet</p>
+{{/if}}
 
 <a href="/wallet/review/{{_id}}">Write A Review</a>
 

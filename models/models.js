@@ -25,10 +25,9 @@ const walletSchema = new Schema({
   publicId: String,
   reviews: [
     {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'},
-        review: String
+      user: String,
+      review: String,
+      rating: Number
     }
   ]
 });
