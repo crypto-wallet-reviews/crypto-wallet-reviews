@@ -8,7 +8,10 @@ const userSchema = new Schema({
     unique: true,
   },
   password: String,
-  imgUrl: String
+  imgUrl: String,
+  email: String,
+  reviews: [String],
+
 });
 
 
