@@ -13,6 +13,13 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+//Helper function to provide a repeat function in hbs template
+hbs.registerHelper("times", function (n, block) {
+  var accum = "";
+  for (var i = 0; i < n; ++i) accum += block.fn(i);
+  return accum;
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
@@ -119,3 +126,4 @@ app.use("/", reviews);
 require("./error-handling")(app);
 
 module.exports = app;
+
