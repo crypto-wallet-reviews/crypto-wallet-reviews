@@ -4,6 +4,17 @@
 
 <form action="/wallet/review/{{_id}}" method="POST">
 
+<label for="rating">Leave a rating</label>
+
+<select name="rating" id="rating">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5" selected>5</option>
+</select>
+<br>
+
 <label for="review"></label>
 <textarea name="review" id="review" cols="30" rows="10" placeholder="I like it because..."></textarea>
 <br>
