@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { User, Wallet } = require('../models/models');
+const { uploader, cloudinary } = require("../config/cloudinary");
+
 
 
 router.get("/", (req, res, next) => {
@@ -17,18 +19,28 @@ router.get('/wallets', (req, res, next) => {
     })
 })
 
+
 router.get('/wallet/create', (req, res) => {
   res.render('createWallet');
 })
 
 
-router.post('/wallets', (req, res, next) => {
-  const { name, description, rating, reviews } = req.body;
+
+router.post('/wallets',uploader.single('photo'), (req, res, next) => {
+
+console.log(req.file)
+
+  const { name, description, rating, reviews } = req.body;  
+  const imgPath = req.file.path;
+  const imgName = req.file.originalname;
+
   Wallet.create({
     name,
     description,
     rating,
-    reviews
+    reviews,
+    imgPath,
+    imgName
   })
     .then(walletFromDB => {
       console.log(`This wallet was just created ${walletFromDB}`);

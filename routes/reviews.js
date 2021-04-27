@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require('passport');
 const { User, Wallet } = require('../models/models');
 const bcrypt = require('bcrypt');
-
+const { uploader, cloudinary } = require("../config/cloudinary");
 
 router.post('/wallet/review/:id', (req, res, next) => {
   

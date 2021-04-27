@@ -11,13 +11,19 @@ const userSchema = new Schema({
   imgUrl: String,
   email: String,
   reviews: [String],
-
+  imgName: String,
+  imgPath: String,
+  publicId: String
 });
 
 
 const walletSchema = new Schema({
   name: String,
   description: String,
+  rating: Number,
+  imgName: String,
+  imgPath: String,
+  publicId: String,
   averageRating: Number,
   reviews: [
     {
