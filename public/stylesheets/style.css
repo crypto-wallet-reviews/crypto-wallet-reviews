@@ -42,12 +42,12 @@ h1 {
   text-decoration: none;
 }
 
-.star {
-  color: lightgray;
+.checked {
+  color: yellow;
+  font-size: 20px;
 }
 
-.star.glow {
-  color: brown;
+.unchecked {
+  font-size: 20px;
 }
-
 

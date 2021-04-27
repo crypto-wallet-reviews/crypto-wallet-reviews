@@ -5,9 +5,13 @@
 <h3>Name: {{name}}</h3>
 <p>Description: {{description}}</p>
 <h5>Rating: {{rating}}</h5>
-  <span class="rating">
-    <span class="star">★</span>
-  </span>
+
+<!-- To display checked star rating icons -->
+{{#times rating}}
+<span class="fa fa-star checked"></span>
+{{/times}}
+<!-- To display unchecked star rating icons -->
+{{!-- <span class="fa fa-star unchecked"></span> --}}
 <p>Wallet ID: {{_id}}</p>
 <hr>
 
