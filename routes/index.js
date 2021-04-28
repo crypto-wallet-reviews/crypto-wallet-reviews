@@ -4,7 +4,6 @@ const { uploader, cloudinary } = require("../config/cloudinary");
 const loginCheck  = require('./middleware');
 
 
-
 router.get("/", (req, res, next) => {
   res.render("index");
 
@@ -31,8 +30,6 @@ router.get('/wallet/create', loginCheck(), (req, res, next) => {
   
   res.render('createWallet');
 })
-
-
 
 
 router.post('/wallets',uploader.single('photo'), (req, res, next) => {
@@ -72,6 +69,5 @@ function getSafe(fn, defaultVal) {
     return defaultVal;
   }
 }
-
 
 module.exports = router;
