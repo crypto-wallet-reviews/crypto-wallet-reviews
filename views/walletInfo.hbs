@@ -14,7 +14,11 @@
 
     <h5>{{user}} says:</h5>
     <p>{{review}}</p>
+    {{#times rating}}
+    <span class="fa fa-star checked"></span>
+    {{/times}}
     <p>{{rating}}/5</p>
+
     
     <hr>
   {{/each}}
