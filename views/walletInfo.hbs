@@ -6,24 +6,33 @@
 
 {{#with walletInfo}}
 
+
 <img src="{{imgPath}}" width="100px" heigth="100px" alt="image missing">
 <h3>{{name}}</h3>
 <p id="wallet-info-desc">{{description}}</p>
 <a href="/wallet/review/{{_id}}">Write A Review</a>
 <a href="/wallet/delete/{{_id}}">Delete this wallet</a>
+
+
 <hr>
 
 {{!-- List the reviews --}}
 {{#if reviews}}
-<h4>Reviews</h4>
   {{#each reviews}}
+
     
   <div class="reviews-div"> 
     <h5>{{user}} says:</h5>
     <p id="review-text">{{review}}</p>
     {{#times rating}}
+
+
+    <h5>{{user}} says:</h5>
+    <p>{{review}}</p>
+    {{#ratings rating}}
+
     <span class="fa fa-star checked"></span>
-    {{/times}}
+    {{/ratings}}
     <p>{{rating}}/5</p>
   </div> 
     
@@ -34,6 +43,12 @@
 {{/if}}
 
 
+
 {{/with}}
+
+<a href="/wallet/review/{{_id}}">Write A Review</a>
+
+<hr>
+
 
 </div>
