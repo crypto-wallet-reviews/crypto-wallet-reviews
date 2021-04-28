@@ -12,18 +12,20 @@ router.get("/signup", (req, res, next) => {
 
 // POST SIGNUP
 router.post('/signup', (req, res, next) => {
-  const { username, password } = req.body;
-  console.log({ username, password });
-  
+  const { username, password, email } = req.body;
+  console.log({ username, password, email});
+    
+
   if (password.length < 8) {
     res.render('signup', { message: 'Your password has to be 8 chars min' });
     return
   }
+  
   if (username === '') {
     res.render('signup', { message: 'Your username cannot be empty' });
     return
   }
-  
+
   User.findOne({ username: username })
     .then(userFromDB => {
       
@@ -35,7 +37,7 @@ router.post('/signup', (req, res, next) => {
         const hash = bcrypt.hashSync(password, salt);
         console.log(hash);
         
-        User.create({ username: username, password: hash })
+        User.create({ username: username, password: hash, email: email })
           .then(createdUser => {
             console.log(createdUser);
             
@@ -44,6 +46,9 @@ router.post('/signup', (req, res, next) => {
       }
     })
 });
+
+
+
 
 
 module.exports = router;

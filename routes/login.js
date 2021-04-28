@@ -10,7 +10,9 @@ router.get("/login", (req, res, next) => {
 
 
 router.post('/login', (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password} = req.body;
+
+  console.log(req.body);
   
   User.findOne({ username: username })
     .then(userFromDB => {

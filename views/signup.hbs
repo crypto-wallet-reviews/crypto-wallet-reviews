@@ -1,28 +1,33 @@
-{{!-- <h1>Signup Page</h1>  --}}
+{{!-- <h1>Signup Page</h1> --}}
 <div class="wrapper">
   <form class="signup" action="/signup" method="POST">
     <p class="title">Sign up</p>
-      {{!-- <label for="username">Username: </label> --}}
-      <div class="textfield">
-        <input type="text" placeholder="Username" name="username" id="username">
-        <i class="fa fa-user"></i>
-      </div>
-      {{!-- <label for="password">Password: </label> --}}
-      <div class="textfield">
-        <input type="password" placeholder="Password" name="password" id="password">
-        <i class="fa fa-key"></i>
-      </div>
+    {{!-- <label for="username">Username: </label> --}}
+    <div class="textfield">
+      <input type="text" placeholder="Username" name="username" id="username">
+      <i class="fa fa-user-circle"></i>
+    </div>
+    {{!-- <label for="password">Password: </label> --}}
+    <div class="textfield">
+      <input type="password" placeholder="Password" name="password" id="password">
+      <i class="fa fa-key"></i>
+    </div>
 
-      <div class="textfield">
-        <input type="email" placeholder="Email" name="email" id="email">
-        <i class="fa fa-envelope"></i>
-      </div>
+    <div class="textfield">
+      <input type="email" placeholder="Email" name="email" id="email">
+      <i class="fa fa-envelope"></i>
+    </div>
 
-      <div>
-      <button type="submit">Sign Up</button>
-      </div>
+    <div>
+      <button type="submit" id='validate'>Sign Up</button>
+    </div>
 
   </form>
-    </p>
 
-</div>
+  {{#if message}}
+    <div class="message">
+      <p style="color: white">{{message}}</p>
+    </div>
+  {{/if}}
+
+  </div>
