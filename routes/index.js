@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const { User, Wallet } = require('../models/models');
 const { uploader, cloudinary } = require("../config/cloudinary");
+const loginCheck  = require('./middleware');
 
 
 
 router.get("/", (req, res, next) => {
   res.render("index");
+
 });
 
 
@@ -20,15 +22,18 @@ router.get('/wallets', (req, res, next) => {
 })
 
 
-router.get('/wallet/create', (req, res) => {
+router.get('/wallet/create', loginCheck(), (req, res, next) => {
+  console.log(loginCheck);
+  
   res.render('createWallet');
 })
 
 
 
+
 router.post('/wallets',uploader.single('photo'), (req, res, next) => {
 
-console.log(req.file)
+  console.log(req.file)
 
   const { name, description, rating, reviews } = req.body;  
   const imgPath = req.file.path;
