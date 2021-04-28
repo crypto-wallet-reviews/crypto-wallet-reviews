@@ -36,8 +36,10 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
   console.log(req.file)
 
   const { name, description, rating, reviews } = req.body;  
-  const imgPath = req.file.path;
-  const imgName = req.file.originalname;
+  var imgName = getSafe(() => req.file.originalname, "");
+  var imgPath = getSafe(() => req.file.path, "");
+
+  
 
   Wallet.create({
     name,
@@ -57,6 +59,13 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
     })
 })
 
+function getSafe(fn, defaultVal) {
+  try {
+    return fn();
+  } catch (e) {
+    return defaultVal;
+  }
+}
 
 
 module.exports = router;
