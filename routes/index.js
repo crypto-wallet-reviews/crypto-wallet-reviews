@@ -69,5 +69,4 @@ function getSafe(fn, defaultVal) {
   }
 }
 
-
 module.exports = router;
