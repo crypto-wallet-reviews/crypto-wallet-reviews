@@ -1,28 +1,28 @@
 {{!-- <h1>Login Page</h1> --}}
 
-<div class= "wrapper">
-  <form class= "login" action="/login" method="POST">
+<div class="wrapper">
+  <form class="login" action="/login" method="POST">
     <p class="title">Log in</p>
-      {{!-- <label for="username">Username: </label> --}}
-      <div class="textfield">
-        <input type="text" placeholder="Username" name="username" id="username">
-        <i class="fa fa-user-circle"></i>
-      </div>
-      
-      {{!-- <label for="password">Password: </label> --}}
-      <div class="textfield">
-        <input type="password" placeholder="Password" name="password" id="password">
-        <i class="fa fa-key"></i>
-      </div>
-      
-      {{!-- <div class="updatePassword">
-        <a href="#">Forgot your password?</a>
-      </div> --}}
-     
-      <div>
-        <button class="state" type="submit">Log In</button>
-      </div>
+    {{!-- <label for="username">Username: </label> --}}
+    <div class="textfield">
+      <input type="text" placeholder="Username" name="username" id="username">
+      <i class="fa fa-user-circle"></i>
+    </div>
+
+    {{!-- <label for="password">Password: </label> --}}
+    <div class="textfield">
+      <input type="password" placeholder="Password" name="password" id="password">
+      <i class="fa fa-key"></i>
+    </div>
+
+    <div class="updatePassword">
+      <a href="/signup">If you don't have an account yet, click here to register</a>
+    </div>
+
+    <div>
+      <button class="state" type="submit">Log In</button>
+    </div>
 
   </form>
-    
+
 </div>
