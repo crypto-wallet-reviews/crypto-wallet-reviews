@@ -3,6 +3,8 @@ const passport = require('passport');
 const { User, Wallet } = require('../models/models');
 const bcrypt = require('bcrypt');
 const { uploader, cloudinary } = require("../config/cloudinary");
+const loginCheck  = require('./middleware');
+
 
 router.post('/wallet/review/:id', (req, res, next) => {
   
@@ -25,7 +27,7 @@ router.post('/wallet/review/:id', (req, res, next) => {
   
 
 
-router.get('/wallet/review/:id', (req, res, next) => {  
+router.get('/wallet/review/:id', loginCheck(), (req, res, next) => {  
   
   console.log(req.params.id)
 
@@ -41,8 +43,8 @@ router.get('/wallet/review/:id', (req, res, next) => {
 });
 
 
-
-router.get('/wallet/:id', (req, res, next) => {
+//WALLET INFO ROUTE
+router.get('/wallet/:id', loginCheck(), (req, res, next) => {
 
   Wallet.findById(req.params.id)
     .then(wallet => {
