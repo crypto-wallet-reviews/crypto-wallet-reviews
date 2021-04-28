@@ -4,10 +4,8 @@ const { uploader, cloudinary } = require("../config/cloudinary");
 const loginCheck  = require('./middleware');
 
 
-
 router.get("/", (req, res, next) => {
   res.render("index");
-
 });
 
 
@@ -27,11 +25,9 @@ router.get('/wallets', (req, res, next) => {
 
 
 router.get('/wallet/create', loginCheck(), (req, res, next) => {
-  console.log(loginCheck);
-  
+  console.log(loginCheck);  
   res.render('createWallet');
 })
-
 
 
 
