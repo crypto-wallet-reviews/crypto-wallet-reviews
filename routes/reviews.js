@@ -1,9 +1,5 @@
 const router = require("express").Router();
 
-const { User, Wallet } = require('../models/models');
-const bcrypt = require('bcrypt');
-
-const passport = require("passport");
 const { User, Wallet } = require("../models/models");
 const bcrypt = require("bcrypt");
 
@@ -13,9 +9,6 @@ const loginCheck = require("./middleware");
 
 
 //POST WALLET REVIEW ROUTE
-
-  
-
 router.post("/wallet/review/:id", (req, res, next) => {
 
   const user = req.session.user;
@@ -44,12 +37,6 @@ router.post("/wallet/review/:id", (req, res, next) => {
 
 
 //GET WALLET REVIEW ROUTE
-router.get('/wallet/review/:id', loginCheck(), (req, res, next) => {  
-  
-  console.log(req.params.id)
-
-  console.log(req.session.user)
-
 router.get("/wallet/review/:id", loginCheck(), (req, res, next) => {
   console.log(req.params.id);
   console.log(req.session.user);
@@ -64,6 +51,7 @@ router.get("/wallet/review/:id", loginCheck(), (req, res, next) => {
     });
 });
 
+  
 //WALLET INFO ROUTE
 router.get("/wallet/:id", loginCheck(), (req, res, next) => {
   Wallet.findById(req.params.id)
@@ -93,14 +81,12 @@ router.get('/wallet/delete/:id', (req, res, next) => {
           .catch(err => {
             next(err);
           })
+        
       } else {
         res.redirect('/wallets');
       }
     });
-  
+  });
 
-    });
-
-});
 
 module.exports = router;
