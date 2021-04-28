@@ -11,6 +11,10 @@ router.get("/", (req, res, next) => {
 });
 
 
+router.get("/about", (req, res, next) => {
+  res.render("about")
+})
+
 
 router.get('/wallets', (req, res, next) => {
   Wallet.find()
@@ -35,6 +39,7 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
 
   console.log(req.file)
 
+  const creator = req.session.user.username;
   const { name, description, rating, reviews } = req.body;  
   var imgName = getSafe(() => req.file.originalname, "");
   var imgPath = getSafe(() => req.file.path, "");
@@ -47,7 +52,8 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
     rating,
     reviews,
     imgPath,
-    imgName
+    imgName,
+    creator
   })
     .then(walletFromDB => {
       console.log(`This wallet was just created ${walletFromDB}`);

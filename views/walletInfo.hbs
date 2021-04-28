@@ -1,9 +1,17 @@
+{{> navlogout}}
+
+<div class="wallet-info-container">
+
 <h1>Wallet Info</h1> 
 
 {{#with walletInfo}}
 
-<h3>Name: {{name}}</h3>
-<p>Description: {{description}}</p>
+
+<img src="{{imgPath}}" width="100px" heigth="100px" alt="image missing">
+<h3>{{name}}</h3>
+<p id="wallet-info-desc">{{description}}</p>
+<a href="/wallet/review/{{_id}}">Write A Review</a>
+<a href="/wallet/delete/{{_id}}">Delete this wallet</a>
 
 
 <hr>
@@ -12,13 +20,21 @@
 {{#if reviews}}
   {{#each reviews}}
 
+    
+  <div class="reviews-div"> 
+    <h5>{{user}} says:</h5>
+    <p id="review-text">{{review}}</p>
+    {{#times rating}}
+
+
     <h5>{{user}} says:</h5>
     <p>{{review}}</p>
     {{#ratings rating}}
+
     <span class="fa fa-star checked"></span>
     {{/ratings}}
     <p>{{rating}}/5</p>
-
+  </div> 
     
     <hr>
   {{/each}}
@@ -26,8 +42,13 @@
 <p>No reviews yet</p>
 {{/if}}
 
+
+
+{{/with}}
+
 <a href="/wallet/review/{{_id}}">Write A Review</a>
 
 <hr>
 
-{{/with}}
+
+</div>

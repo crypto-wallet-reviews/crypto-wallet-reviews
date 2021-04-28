@@ -1,11 +1,23 @@
 const router = require("express").Router();
+
+const { User, Wallet } = require('../models/models');
+const bcrypt = require('bcrypt');
+
 const passport = require("passport");
 const { User, Wallet } = require("../models/models");
 const bcrypt = require("bcrypt");
+
 const { uploader, cloudinary } = require("../config/cloudinary");
 const loginCheck = require("./middleware");
 
+
+
+//POST WALLET REVIEW ROUTE
+
+  
+
 router.post("/wallet/review/:id", (req, res, next) => {
+
   const user = req.session.user;
   const { review, rating } = req.body;
 
@@ -30,9 +42,18 @@ router.post("/wallet/review/:id", (req, res, next) => {
     });
 });
 
+
+//GET WALLET REVIEW ROUTE
+router.get('/wallet/review/:id', loginCheck(), (req, res, next) => {  
+  
+  console.log(req.params.id)
+
+  console.log(req.session.user)
+
 router.get("/wallet/review/:id", loginCheck(), (req, res, next) => {
   console.log(req.params.id);
   console.log(req.session.user);
+
 
   Wallet.findById(req.params.id)
     .then((wallet) => {
@@ -51,7 +72,35 @@ router.get("/wallet/:id", loginCheck(), (req, res, next) => {
     })
     .catch((err) => {
       next(err);
+
+    })
+})
+
+//WALLET DELETE
+router.get('/wallet/delete/:id', (req, res, next) => {
+  
+
+  console.log(req.session);
+  console.log(req.session.user.username);
+  
+  Wallet.findById(req.params.id)
+    .then(wallet => {
+      if (wallet.creator === req.session.user.username) {
+        Wallet.findByIdAndDelete(req.params.id)
+          .then(() => {
+            res.redirect('/wallets');
+          })
+          .catch(err => {
+            next(err);
+          })
+      } else {
+        res.redirect('/wallets');
+      }
     });
+  
+
+    });
+
 });
 
 module.exports = router;
