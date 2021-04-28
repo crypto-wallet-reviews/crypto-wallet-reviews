@@ -25,6 +25,7 @@ const walletSchema = new Schema({
   imgPath: String,
   publicId: String,
   averageRating: Number,
+  creator: String,
   reviews: [
     {
       user: String,

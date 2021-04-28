@@ -1,7 +1,15 @@
+{{> navlogout}}
+<div class="browse-wallets-container">
 <h1>Browse Wallets</h1>
+
+
+
+<br>
+<hr>
 
 {{#each walletList}}
 
+<div class="eachwallet">
 
 <img src="{{imgPath}}" width="100px" heigth="100px" alt="image missing">
 
@@ -19,8 +27,14 @@
 {{!-- <span class="fa fa-star unchecked"></span> --}}
 
 <a href="/wallet/{{_id}}">More Info</a>
+
+
+</div>
+<div>
 <hr>
-
-
-
+</div>
 {{/each}}
+
+<a href="/wallet/create">Create a wallet</a>
+</div>
+

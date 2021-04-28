@@ -39,6 +39,7 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
 
   console.log(req.file)
 
+  const creator = req.session.user.username;
   const { name, description, rating, reviews } = req.body;  
   const imgPath = req.file.path;
   const imgName = req.file.originalname;
@@ -49,7 +50,8 @@ router.post('/wallets',uploader.single('photo'), (req, res, next) => {
     rating,
     reviews,
     imgPath,
-    imgName
+    imgName,
+    creator
   })
     .then(walletFromDB => {
       console.log(`This wallet was just created ${walletFromDB}`);
