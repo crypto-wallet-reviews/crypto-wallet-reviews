@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'crypot-wallet-uploads',
-    allowed_formats: 'jpg, png'
+    allowed_formats: 'jpg, png, jpeg'
   }
 });
 

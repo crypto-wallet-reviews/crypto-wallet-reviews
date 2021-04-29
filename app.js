@@ -92,8 +92,9 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
-// session configuration
 
+// session configuration
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/Crypto-Wallet-Reviews";
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const mongoose = require("./db/index");
@@ -106,7 +107,7 @@ app.use(
     saveUninitialized: false,
     resave: true,
     store: MongoStore.create({
-      mongoUrl: 'mongodb+srv://Ironhack:UvBXyfMF56DwFEjD@cluster0.0e5ts.mongodb.net/Crypto-Wallet-Reviews?retryWrites=true&w=majority' //DB_URL ,
+      mongoUrl: MONGO_URI
     }),
   })
 );
