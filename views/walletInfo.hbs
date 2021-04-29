@@ -3,51 +3,45 @@
 <div class="wallet-info-container">
 
   <h1>Wallet Info</h1> 
-<div class="walletInfo-top">
-  {{#with walletInfo}}
-  <img src="{{imgPath}}" width="100px" heigth="100px" alt="image missing">
-  <h3>{{name}}</h3>
-  <p id="wallet-info-desc">{{description}}</p>
-  <a href="/wallet/review/{{_id}}">Write A Review</a>
-  <a href="/wallet/delete/{{_id}}">Delete this wallet</a>
-  {{/with}}
+    <div class="walletInfo-top">
+        {{#with walletInfo}}
+          <img src="{{imgPath}}" width="100px" heigth="100px" alt="image missing">
+          <h3>{{name}}</h3>
+          <p id="wallet-info-desc">{{description}}</p>
+          <a href="/wallet/review/{{_id}}">Write A Review</a>
+          <a href="/wallet/delete/{{_id}}">Delete this wallet</a>
+        {{/with}}
 
-  <div id="delete-message-warning">
-    {{#if message}}
-      <div class="fade-out">
-        <p>{{message}}</p>
-      </div>
-    {{/if}}
+          <div id="delete-message-warning">
+            {{#if message}}
+              <div class="fade-out">
+                <p>{{message}}</p>
+              </div>
+            {{/if}}
+          </div>
+        <br>
+        <div></div>
+        <hr>
+    </div>
+
+  <div class="walletInfo-reviews">
+    {{#with walletInfo}}
+      {{#if reviews}}
+      <h4>Reviews</h4>
+        {{#each reviews}}
+          
+          <div class="reviews-div"> 
+              <h5>{{user}} says:</h5>
+              <p id="review-text">{{review}}</p>
+              {{#ratings rating}}          
+              {{/ratings}}
+              <p>{{rating}}/5</p>
+          </div> 
+            <hr>
+        {{/each}}
+      {{else}}
+      <p>No reviews yet</p>
+      {{/if}}
+    {{/with}}
   </div>
-  <br>
-  <div></div>
-  <hr>
-</div>
-<div class="walletInfo-reviews">
-  {{#with walletInfo}}
-
-  {{#if reviews}}
-  <h4>Reviews</h4>
-    {{#each reviews}}
-      
-    <div class="reviews-div"> 
-      <h5>{{user}} says:</h5>
-      <p id="review-text">{{review}}</p>
-      {{#ratings rating}}
-    
-      {{/ratings}}
-      <p>{{rating}}/5</p>
-
-
-    </div> 
-      
-      <hr>
-    {{/each}}
-  {{else}}
-  <p>No reviews yet</p>
-  {{/if}}
-
-
-  {{/with}}
-</div>
 </div>

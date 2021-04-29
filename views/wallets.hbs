@@ -1,37 +1,24 @@
 {{> navlogout}}
 <div class="browse-wallets-container">
-<h1>Browse Wallets</h1>
-
-
-
-<br>
-<hr>
-
-{{#each walletList}}
-
-<div class="eachwallet">
-
-{{#image imgPath}}{{/image}}
-
-
-<h3>{{name}}</h3>
-<p>{{description}}</p>
-
-<div>
-<p> {{#averageRating reviews}}{{/averageRating}}/5 </p>
-{{#averageRatingsStars reviews}}{{/averageRatingsStars}}
-</div>
-<br>
-
-<a href="/wallet/{{_id}}">More Info</a>
-
-
-</div>
-<div>
-<hr>
-</div>
-{{/each}}
-
-<a href="/wallet/create">Create a wallet</a>
+  <h1>Browse Wallets</h1>
+  <br>
+  <hr>
+  {{#each walletList}}
+    <div class="eachwallet">
+      {{#image imgPath}}{{/image}}
+      <h3>{{name}}</h3>
+      <p>{{description}}</p>
+      <div>
+        <p> {{#averageRatingView reviews}}{{/averageRatingView}}</p>
+        {{#averageRatingsStars reviews}}{{/averageRatingsStars}}
+      </div>
+      <br>
+      <a href="/wallet/{{_id}}">More Info</a>
+    </div>
+    <div>
+      <hr>
+    </div>
+  {{/each}}
+  <a href="/wallet/create">Create a wallet</a>
 </div>
 

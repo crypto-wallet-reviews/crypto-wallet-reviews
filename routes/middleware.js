@@ -1,5 +1,3 @@
-// const router = require("express").Router();
-
 const loginCheck = () => {
   return (req, res, next) => {
     

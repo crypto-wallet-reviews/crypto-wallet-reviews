@@ -3,17 +3,17 @@ const { User, Wallet } = require('../models/models');
 const { uploader, cloudinary } = require("../config/cloudinary");
 const loginCheck  = require('./middleware');
 
-
+//GET HOMEPAGE ROUTE
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
+//GET ABOUT ROUTE
 router.get("/about", (req, res, next) => {
   res.render("about")
 })
 
-
+//GET BROWSE WALLETS ROUTE
 router.get('/wallets', (req, res, next) => {
   Wallet.find()
     .then(wallets => {
@@ -23,24 +23,19 @@ router.get('/wallets', (req, res, next) => {
     })
 })
 
-
+//GET CREATE WALLET ROUTE
 router.get('/wallet/create', loginCheck(), (req, res, next) => {
   console.log(loginCheck);  
   res.render('createWallet');
 })
 
 
-
+//POST CREATE WALLET ROUTE
 router.post('/wallets',uploader.single('photo'), (req, res, next) => {
-
-  console.log(req.file)
-
   const creator = req.session.user.username;
   const { name, description, rating, reviews } = req.body;  
   var imgName = getSafe(() => req.file.originalname, "");
   var imgPath = getSafe(() => req.file.path, "");
-
-  
 
   Wallet.create({
     name,

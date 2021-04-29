@@ -11,8 +11,6 @@ router.post('/wallet/review/:id', (req, res, next) => {
   const user = req.session.user;
   const { review, rating } = req.body;
 
-  console.log(user, review);
-
   Wallet.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { user: user.username, review: review, rating: rating } },
   })
@@ -28,11 +26,6 @@ router.post('/wallet/review/:id', (req, res, next) => {
 
 //GET WALLET REVIEW ROUTE
 router.get('/wallet/review/:id', loginCheck(), (req, res, next) => {  
-  
-  console.log(req.params.id)
-
-  console.log(req.session.user)
-
   Wallet.findById(req.params.id)
     .then(wallet => {
       res.render('review', { walletInfo: wallet });
@@ -58,9 +51,6 @@ router.get('/wallet/:id', loginCheck(), (req, res, next) => {
 //WALLET DELETE
 router.get('/wallet/delete/:id', (req, res, next) => {  
 
-  console.log(req.session);
-  console.log(req.session.user.username);
-  
   Wallet.findById(req.params.id)
     .then(wallet => {
       if (wallet.creator === req.session.user.username) {
@@ -72,7 +62,6 @@ router.get('/wallet/delete/:id', (req, res, next) => {
             next(err);
           })
       } else {
-
   Wallet.findById(req.params.id)
     .then(wallet => {
     res.render('walletInfo', { walletInfo: wallet, message: 'Only wallet creators can delete' });

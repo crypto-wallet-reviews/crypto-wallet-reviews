@@ -13,20 +13,15 @@ router.get("/signup", (req, res, next) => {
 // POST SIGNUP
 router.post('/signup', (req, res, next) => {
   const { username, password, email } = req.body;
-  console.log({ username, password, email});
-    
-
+  
   if (password.length < 8) {
     res.render('signup', { message: 'Your password should be a minimum of 8 characters in length' });
     return
-  }
-  
+  }  
   if (username === '') {
     res.render('signup', { message: 'Your username cannot be empty' });
     return
-  }
-
-  
+  }  
   User.findOne({ username: username })
     .then(userFromDB => {
       
@@ -36,20 +31,13 @@ router.post('/signup', (req, res, next) => {
         
         const salt = bcrypt.genSaltSync();
         const hash = bcrypt.hashSync(password, salt);
-        console.log(hash);
-        
-        User.create({ username: username, password: hash, email: email })
-          .then(createdUser => {
-            console.log(createdUser);
-            
-            res.redirect('/login');
-          })
-      }
-    })
+      
+  User.create({ username: username, password: hash, email: email })
+     .then(createdUser => {
+       res.redirect('/login');
+      })
+    }
+  })
 });
-
-
-
-
 
 module.exports = router;

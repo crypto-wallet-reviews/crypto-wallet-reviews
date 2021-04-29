@@ -2,34 +2,30 @@
 
 <div class="wrapper">
   <form class="login" action="/login" method="POST">
-    <p class="title">Log in</p>
-    {{!-- <label for="username">Username: </label> --}}
-    <div class="textfield">
-      <input type="text" placeholder="Username" name="username" id="username">
-      <i class="fa fa-user-circle"></i>
-    </div>
+      <p class="title">Log in</p>
 
-    {{!-- <label for="password">Password: </label> --}}
-    <div class="textfield">
-      <input type="password" placeholder="Password" name="password" id="password">
-      <i class="fa fa-key"></i>
-    </div>
+      <div class="textfield">
+        <input type="text" placeholder="Username" name="username" id="username">
+        <i class="fa fa-user-circle"></i>
+      </div>
 
-    <div class="updatePassword">
-      <a href="/signup">Don't have an account yet? Click here to sign up!</a>
-    </div>
+      <div class="textfield">
+        <input type="password" placeholder="Password" name="password" id="password">
+        <i class="fa fa-key"></i>
+      </div>
 
-    {{#if message}}
-    <div class="fade-out">
-      <p>{{message}}</p>
-    </div>
-  {{/if}}
+      <div class="updatePassword">
+        <a href="/signup">Don't have an account yet? Click here to sign up!</a>
+      </div>
 
+      {{#if message}}
+        <div class="fade-out">
+          <p>{{message}}</p>
+        </div>
+      {{/if}}
 
-    <div>
-      <button class="state" type="submit">Log In</button>
-    </div>
-
+      <div>
+        <button class="state" type="submit">Log In</button>
+      </div>
   </form>
-
 </div>

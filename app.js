@@ -36,7 +36,11 @@ hbs.registerHelper("ratings", function (n, block) {
 hbs.registerHelper("averageRating", function (reviews, block) {
   return averageRating(reviews);
 });
-
+///////
+hbs.registerHelper("averageRatingView", function (reviews, block) {
+  return averageRatingView(reviews);
+});
+///////
 hbs.registerHelper("averageRatingsStars", function (reviews, block) {
   var accum = "";
   var n = averageRating(reviews);
@@ -52,25 +56,34 @@ hbs.registerHelper("averageRatingsStars", function (reviews, block) {
 
 function averageRating(reviews) {
    var accum = 0;
-
    if (reviews.length === 0) {
-     return "No reviews yet";
+     return;
    }
    for (var i = 0; i < reviews.length; ++i) {
      accum += reviews[i].rating;
    }
    return Math.floor(accum / reviews.length);  
-
 }
 
-hbs.registerHelper("image", function (imagePath, block) {
+///////
+function averageRatingView(reviews) {
+  var accum = 0;
+  if (reviews.length === 0) {
+    return "No reviews yet";
+  }
+  for (var i = 0; i < reviews.length; ++i) {
+    accum += reviews[i].rating;
+  }
+  return `${Math.round((accum / reviews.length)*10)/10}/5`;  
+}
+///////
 
+hbs.registerHelper("image", function (imagePath, block) {
     if (imagePath == "") {
       return `<img src="iconPlaceholder.png" width="100px" heigth="100px" alt="image missing">`;
     } else {
       return  `<img src=${imagePath} width="100px" heigth="100px" alt="image missing">`;
     }
-
 });
 
 
@@ -100,61 +113,8 @@ app.use(
 
 app.use(express.static("public/images")); 
 
-
 // end of session configuration
 
-// passport configuration
-// http://www.passportjs.org/docs/configure/
-const { User, Wallet } = require("./models/models");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcrypt");
-
-// passport wants to store as little data as possible in the session so it only uses
-// the id's (or someting else if we would want to implement that) and not the whole
-// user object
-// this method is used by passport to put the id of the user into the session
-passport.serializeUser((user, done) => {
-  done(null, user._id);
-});
-
-// this is used to retrieve the user by it's id (that is stored in the session)
-passport.deserializeUser((id, done) => {
-  User.findById(id)
-    .then((dbUser) => {
-      done(null, dbUser);
-    })
-    .catch((err) => {
-      done(err);
-    });
-});
-
-passport.use(
-  new LocalStrategy((username, password, done) => {
-    // this logic will be executed when we log in
-    User.findOne({ username: username })
-      .then((userFromDB) => {
-        if (userFromDB === null) {
-          // there is no user with this username
-          done(null, false, { message: "Wrong Credentials" });
-        } else if (!bcrypt.compareSync(password, userFromDB.password)) {
-          // the password does not match
-          done(null, false, { message: "Wrong Credentials" });
-        } else {
-          // everything correct - user should be logged in
-          done(null, userFromDB);
-        }
-      })
-      .catch((err) => {
-        next(err);
-      });
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-// end of passport configuration
 
 // default value for title local
 const projectName = "Crypto-Wallet-Reviews";
@@ -184,9 +144,7 @@ module.exports = app;
 
 
 // validation email
-
 function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-
