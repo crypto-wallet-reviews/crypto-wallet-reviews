@@ -144,16 +144,19 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: url("https://res.cloudinary.com/finstababy/image/upload/v1619614825/crypot-wallet-uploads/background-home_pymmec.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/finstababy/image/upload/v1619614825/crypot-wallet-uploads/background-home_pymmec.jpg");
   background-size: cover;
 }
 
 .homewrapper img {
-  margin-top: 40px;
+  width: 240px;
+  margin-top: 20px;
   
 }
 
 .homewrapper h2 {
+  font-size: 18px;
+  margin-top: 30px;
   margin-bottom: 50px;
   text-shadow: 0px 0px 5px black;
 }
@@ -165,12 +168,18 @@ body {
   background-color: black;
   padding: 10px 30px;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 .homedesc {
-  padding: 10px 100px;
-  margin: 50px 100px;
+  padding: 20px 40px;
+  margin: 50px 200px;
   text-align: center;
+  border: 1px solid teal;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 5px teal;
+  font-style: italic;
 }
 
 
@@ -231,9 +240,10 @@ body {
 
 /* CREATE WALLET */
 .create{
+  background-color: rgb(238, 238, 238);
   font-family: 18px "Roboto", Helvetica, Arial, sans-serif;
   height: 100vh;
-  background: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed;
+  background: url("https://res.cloudinary.com/finstababy/image/upload/v1619614825/crypot-wallet-uploads/background-home_pymmec.jpg") 50% fixed;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -312,9 +322,15 @@ body {
 }
 
 .eachwallet {
+  background-color: rgb(250, 246, 246);
   margin-bottom: 20px;
+  padding: 10px 10px 30px 10px;
+  border-radius: 5px;
 }
 
+.eachwallet img {
+  border-radius: 5px;
+}
 
 /* WALLET INFO */
 .wallet-info-container {
@@ -333,6 +349,32 @@ body {
   margin-bottom: 40px;
 }
 
+#delete-message-warning {
+  font-weight: bold;
+  position: absolute;
+  transform: translate(360px, -53px);
+}
+
+.walletInfo-top {
+  background-color: rgb(250, 246, 246);
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+}
+
+.walletInfo-top img{
+  border-radius: 5px;
+}
+
+.walletInfo-top hr {
+  margin-top: 20px;
+}
+
+.walletInfo-reviews {
+  background-color: rgb(250, 246, 246);
+  padding: 10px 10px 10px 10px;
+}
+
+/* REVIEWS PAGE */
 .reviews-div {
   padding: 2px 10px;
   background-color: rgba(128, 128, 128, 0.137);

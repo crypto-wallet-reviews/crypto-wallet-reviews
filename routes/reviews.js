@@ -56,8 +56,7 @@ router.get('/wallet/:id', loginCheck(), (req, res, next) => {
 })
 
 //WALLET DELETE
-router.get('/wallet/delete/:id', (req, res, next) => {
-  
+router.get('/wallet/delete/:id', (req, res, next) => {  
 
   console.log(req.session);
   console.log(req.session.user.username);
@@ -76,7 +75,7 @@ router.get('/wallet/delete/:id', (req, res, next) => {
 
   Wallet.findById(req.params.id)
     .then(wallet => {
-    res.render('walletInfo', { walletInfo: wallet, message: 'test' });
+    res.render('walletInfo', { walletInfo: wallet, message: 'Only wallet creators can delete' });
     })
     .catch(err => {
       next(err);
