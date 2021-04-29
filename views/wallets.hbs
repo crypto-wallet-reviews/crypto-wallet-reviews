@@ -16,16 +16,16 @@
 
 <h3>{{name}}</h3>
 <p>{{description}}</p>
-<h5>{{rating}}</h5>
+
+{{#averageRating reviews}}{{/averageRating}}
+<br/><br />
+
+{{#averageRatingsStars reviews}}{{/averageRatingsStars}}
+<br />
+<br />
 
 
 
-<!-- To display checked star rating icons -->
-{{#times rating}}
-<span class="fa fa-star checked"></span>
-{{/times}}
-<!-- To display unchecked star rating icons -->
-{{!-- <span class="fa fa-star unchecked"></span> --}}
 
 <a href="/wallet/{{_id}}">More Info</a>
 

@@ -33,6 +33,36 @@ hbs.registerHelper("ratings", function (n, block) {
   return accum;
 });
 
+hbs.registerHelper("averageRating", function (reviews, block) {
+  return averageRating(reviews);
+});
+
+hbs.registerHelper("averageRatingsStars", function (reviews, block) {
+  var accum = "";
+  var n = averageRating(reviews);
+  for (var i = 0; i < 5; ++i) {
+    if (n > i) {
+      accum += '<span class="fa fa-star checked"></span>';
+    } else {
+      accum += '<span class="fa fa-star unchecked"></span>';
+    }
+  }
+  return accum;
+});
+
+function averageRating(reviews) {
+   var accum = 0;
+
+   if (reviews.length === 0) {
+     return "No reviews yet";
+   }
+   for (var i = 0; i < reviews.length; ++i) {
+     accum += reviews[i].rating;
+   }
+   return Math.floor(accum / reviews.length);  
+
+}
+
 hbs.registerHelper("image", function (imagePath, block) {
 
     if (imagePath == "") {
