@@ -3,12 +3,12 @@
 <div class="wrapper">
   <form class="signup" action="/signup" method="POST">
     <p class="title">Sign up</p>
-    {{!-- <label for="username">Username: </label> --}}
+   
     <div class="textfield">
       <input type="text" placeholder="Username" name="username" id="username">
       <i class="fa fa-user-circle"></i>
     </div>
-    {{!-- <label for="password">Password: </label> --}}
+    
     <div class="textfield">
       <input type="password" placeholder="Password" name="password" id="password">
       <i class="fa fa-key"></i>
@@ -20,8 +20,14 @@
     </div>
 
     <div class="goToLogin">
-      <a href="/login">If you have already registered, please click here to login.</a>
+      <a href="/login">Already registered? Click here to login!</a>
     </div>
+
+    {{#if message}}
+    <div class="fade-out">
+      <p>{{message}}</p>
+    </div>
+  {{/if}}
 
     <div>
       <button type="submit" id='validate'>Sign Up</button>
@@ -29,10 +35,6 @@
 
   </form>
 
-  {{#if message}}
-    <div class="message">
-      <p style="color: white">{{message}}</p>
-    </div>
-  {{/if}}
+  
 
   </div>

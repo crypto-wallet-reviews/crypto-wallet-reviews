@@ -1,38 +1,27 @@
 
 {{> navlogout}}
-<h1>Create Wallet Page!</h1>
-
-
 
 
 <div class="create">
   <form class="wallet" action="/wallets" method="POST" enctype="multipart/form-data">
     <p class="title">Create a Wallet</p>
-      <div class="text">
-        {{!-- <label for="name">Name:</label> --}}
-        {{!-- <input type="text" name="name" id="name"> --}}
-        <label>
-          Name: <input type="text" name="name" id="name" />
-        </label>
+
+      <div class="createWalletField">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"/>       
       </div>
 
-      <div class="text">
-        {{!-- <label for="description">Description:</label>
-        <input type="text" name="description" id="description"> --}}
-        <label>
-          Description: <input type="text" name="description" id="description" />
-        </label>
+      <div class="createWalletField">
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
       </div>
 
-      <div class="text">
-        {{!-- <label for="photo">Upload:   </label>
-        <input type="file" name="photo" id="photo"> --}}
-        <label>
-          Upload: <input type="file" name="photo" id="photo"/>
-        </label>
+      <div class="createWalletField">
+        <label for="photo">Upload:  </label>
+        <input type="file" name="photo" id="photo"/>  
       </div>
 
-      <div class="textfield">
+      <div>
         <button type="submit">Create Wallet</button>
       </div>
   </form>

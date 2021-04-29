@@ -73,10 +73,16 @@ router.get('/wallet/delete/:id', (req, res, next) => {
             next(err);
           })
       } else {
-        res.redirect('/wallets');
-      }
-    });
-  
+
+  Wallet.findById(req.params.id)
+    .then(wallet => {
+    res.render('walletInfo', { walletInfo: wallet, message: 'test' });
+    })
+    .catch(err => {
+      next(err);
+    })
+    }    
+  });
 });
 
 module.exports = router;

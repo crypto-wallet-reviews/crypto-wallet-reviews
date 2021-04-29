@@ -11,6 +11,13 @@
 <p id="wallet-info-desc">{{description}}</p>
 <a href="/wallet/review/{{_id}}">Write A Review</a>
 <a href="/wallet/delete/{{_id}}">Delete this wallet</a>
+
+{{#if message}}
+    <div class="fade-out">
+      <p>{{message}}</p>
+    </div>
+  {{/if}}
+
 <hr>
 
 {{!-- List the reviews --}}

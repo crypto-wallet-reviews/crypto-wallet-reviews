@@ -17,7 +17,7 @@ router.post('/signup', (req, res, next) => {
     
 
   if (password.length < 8) {
-    res.render('signup', { message: 'Your password has to be 8 chars min' });
+    res.render('signup', { message: 'Your password should be a minimum of 8 characters in length' });
     return
   }
   
@@ -26,6 +26,7 @@ router.post('/signup', (req, res, next) => {
     return
   }
 
+  
   User.findOne({ username: username })
     .then(userFromDB => {
       
