@@ -16,8 +16,15 @@
     </div>
 
     <div class="updatePassword">
-      <a href="/signup">If you don't have an account yet, click here to register</a>
+      <a href="/signup">Don't have an account yet? Click here to sign up!</a>
     </div>
+
+    {{#if message}}
+    <div class="fade-out">
+      <p>{{message}}</p>
+    </div>
+  {{/if}}
+
 
     <div>
       <button class="state" type="submit">Log In</button>

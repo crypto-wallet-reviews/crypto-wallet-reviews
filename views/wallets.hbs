@@ -17,15 +17,11 @@
 <h3>{{name}}</h3>
 <p>{{description}}</p>
 
-{{#averageRating reviews}}{{/averageRating}}
-<br/><br />
-
+<div>
+<p> {{#averageRating reviews}}{{/averageRating}}/5 </p>
 {{#averageRatingsStars reviews}}{{/averageRatingsStars}}
-<br />
-<br />
-
-
-
+</div>
+<br>
 
 <a href="/wallet/{{_id}}">More Info</a>
 

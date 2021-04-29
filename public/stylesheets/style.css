@@ -3,9 +3,15 @@
 
 
 body {
+  background-color: rgb(238, 238, 238);
   font: 16px "Roboto", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+/* ABOUT PAGE */
+.aboutPage {
+  padding: 50px 150px;
 }
 
 /* NAVBAR */
@@ -47,10 +53,11 @@ body {
 }
 
 .unchecked {
+  color: grey;
   font-size: 20px;
 }
 
-/* LOGIN */
+/* LOGIN BACKGROUNG*/
 .wrapper {
   font-family: 18px "Roboto", Helvetica, Arial, sans-serif;
   height: 100vh;
@@ -68,40 +75,7 @@ body {
   padding: 20px;
 }
 
-
-/* INDEX PAGE/HOMEPAGE */
-.homewrapper {
-  padding: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background: url("https://res.cloudinary.com/finstababy/image/upload/v1619614825/crypot-wallet-uploads/background-home_pymmec.jpg") 50% fixed;
-}
-
-.homewrapper img {
-  margin-top: 40px;
-}
-
-.homewrapper h2 {
-  margin-bottom: 50px;
-}
-
-.homewrapper a {
-  color: white;
-  text-decoration: none;
-  margin: 20px;
-  background-color: black;
-  padding: 10px 30px;
-  border: 1px solid white;
-}
-
-.homedesc {
-  margin: 50px 100px;
-  text-align: center;
-}
-
-
+/* LOGIN BOX */
 .login {
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
@@ -117,21 +91,6 @@ body {
  .login a {
   font-size: 0.7em;
   text-decoration: none;
-}
-
- .signup a {
-   font-size: 0.7em;
-   text-decoration: none;
- }
-
-
-.title {
-  color: rgb(58, 57, 57);
-  font-size: 1.4em;
-  font-weight: bold;
-  margin: 10px 0 30px 0;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px; 
 }
 
 .login button {
@@ -152,20 +111,86 @@ body {
   transform: rotateZ(0deg);
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
-
+  cursor: pointer;
 }
 
 .textfield {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   padding: 2.5px;
+}
+
+.textfield input {
+  padding: 5px;
+  width: 100%;
+  margin: 8px;
+}
+
+.updatePassword {
+  margin: 12px;
 }
 
 .fa{
   display: flex;
   padding: 5px;
 }
+
+/* INDEX PAGE/HOMEPAGE */
+.homewrapper {
+  padding: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: url("https://res.cloudinary.com/finstababy/image/upload/v1619614825/crypot-wallet-uploads/background-home_pymmec.jpg");
+  background-size: cover;
+}
+
+.homewrapper img {
+  margin-top: 40px;
+  
+}
+
+.homewrapper h2 {
+  margin-bottom: 50px;
+  text-shadow: 0px 0px 5px black;
+}
+
+.homewrapper a {
+  color: white;
+  text-decoration: none;
+  margin: 20px;
+  background-color: black;
+  padding: 10px 30px;
+  border: 1px solid white;
+}
+
+.homedesc {
+  padding: 10px 100px;
+  margin: 50px 100px;
+  text-align: center;
+}
+
+
+
+ .signup a {
+   font-size: 0.7em;
+   text-decoration: none;
+ }
+
+
+.title {
+  color: rgb(58, 57, 57);
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 10px 0 30px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px; 
+}
+
+
 
 .signup{
   border-radius: 2px 2px 5px 5px;
@@ -175,7 +200,7 @@ body {
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px black;
 }
 
 .signup button {
@@ -194,22 +219,17 @@ body {
   border: 0px solid rgba(0, 0, 0, 0.1);
   border-radius: 0 0 2px 2px;
   transform: rotateZ(0deg);
-
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
-
+  cursor: pointer;
 }
 
-.message {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 5px 5px 5px 5px;
-  background: black;
-  margin: 10px;
-  padding: 10px;
+.goToLogin {
+  margin: 12px;
 }
+
+
+/* CREATE WALLET */
 .create{
   font-family: 18px "Roboto", Helvetica, Arial, sans-serif;
   height: 100vh;
@@ -221,36 +241,39 @@ body {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+}
+
+.createWalletField {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.createWalletField input {
+  padding: 5px;
+  margin: 3px;
+  width: 65%;
+}
+
+.createWalletField textarea {
+  margin: 3px;
+}
+
+.createWalletField label {
+  margin: 3px;
 }
 
 .wallet {
-
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 320px;
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
-
-}
-
-
-/* BROWSE WALLETS */
-
-.browse-wallets-container {
-  padding: 10px 50px;
-}
-
-.browse-wallets-container a {
-  color: white;
-  text-decoration: none;
-  background-color: black;
-  padding: 10px 30px;
-  border: 1px solid white;
-
 }
 
 .wallet button {
@@ -271,14 +294,20 @@ body {
   transform: rotateZ(0deg);
   transition: all 0.1s ease-out;
   border-bottom-width: 7px;
-
 }
 
-.text {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin: 8px;
+
+/* BROWSE WALLETS */
+.browse-wallets-container {
+  padding: 10px 100px;
+}
+
+.browse-wallets-container a {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  padding: 10px 30px;
+  border: 1px solid white;
 
 }
 
@@ -286,8 +315,10 @@ body {
   margin-bottom: 20px;
 }
 
+
+/* WALLET INFO */
 .wallet-info-container {
-  padding: 10px 50px;
+  padding: 10px 100px;
 }
 
 .wallet-info-container a {
@@ -309,4 +340,89 @@ body {
 
 #review-text {
   font-size: 12px;
+}
+
+/* WRITE REVIEW PAGE */
+.write-review {
+  padding: 50px 100px;
+}
+
+#review-form label {
+  margin: 5px 5px 10px 0px;
+}
+
+#review-form select {
+  margin: 5px 5px 10px 0px;
+  padding-left: 5px;
+}
+
+#review-form button {
+  margin-top: 10px;
+  margin-left: 5px;
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+}
+
+
+
+/* MESSAGE FADEOUT */
+.fade-out {
+  opacity: 0;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+  color: red;
+  animation: fadeOut ease 5s;
+  -webkit-animation: fadeOut ease 5s;
+  -moz-animation: fadeOut ease 5s;
+  -o-animation: fadeOut ease 5s;
+  -ms-animation: fadeOut ease 5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
 }
